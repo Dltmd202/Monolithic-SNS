@@ -1,7 +1,7 @@
 echo "script start.."
 
 main_container="sns"
-path="dockerfiles/docker-compose-dev.yml"
+path="docker-compose-dev.yml"
 
 
 if [ -z `docker-compose -f $path ps -q $main_container` ] || [ -z `docker ps -q --no-trunc | grep $(docker-compose -f $path ps -q $main_container)` ]; then

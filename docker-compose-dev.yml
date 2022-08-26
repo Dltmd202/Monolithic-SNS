@@ -4,6 +4,7 @@ services:
     image: mysql
     ports: 
       - "3306:3306"
+      - "2020:22" 
     env_file:
       -  env/mysql-dev.env
     volumes:

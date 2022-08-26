@@ -23,7 +23,12 @@ logging.level:
 cloud:
   aws:
     s3:
-      bucket:
+      bucket: test
+    region:
+      static: test
+    credentials:
+      access-key: test
+      secret-key: test
 
 file:
   dir: "${pwd}/../"

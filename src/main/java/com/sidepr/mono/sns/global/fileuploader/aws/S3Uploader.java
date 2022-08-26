@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 @RequiredArgsConstructor
 public class S3Uploader implements FileUploader {
@@ -27,7 +26,7 @@ public class S3Uploader implements FileUploader {
         if(file.isEmpty()){
             return null;
         }
-        InputStream uploadFile = file.getInputStream();
+        
         String originalFilename = file.getOriginalFilename();
         String fileName = dirName + "/" + FileUploader.createStoreFileName(originalFilename);
 
@@ -39,7 +38,7 @@ public class S3Uploader implements FileUploader {
                 new PutObjectRequest(bucket, fileName, file.getInputStream(), objectMetadata)
                         .withCannedAcl(CannedAccessControlList.PublicRead)
         );
-
+        
         return s3Client
                 .getUrl(bucket, fileName)
                 .toString();

@@ -22,13 +22,14 @@ logging.level:
 
 cloud:
   aws:
+    stack: false
+    region:
+      static: ap-northeast-2
     s3:
       bucket: test
-    region:
-      static: test
     credentials:
-      access-key: test
-      secret-key: test
+      accessKey: test
+      secretKey: test
 
 file:
   dir: "${pwd}/../"
